@@ -1,0 +1,231 @@
+/* style.css */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', 'Inter', sans-serif;
+  background: linear-gradient(135deg, #e8f5e9 0%, #f0f8f5 100%);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Container: take full viewport height, column layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 950px;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Chatbox: take all available vertical space between header and input */
+#chatbox {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: transparent;
+  box-sizing: border-box;
+  min-height: 0; /* Important for flexbox scroll */
+  scrollbar-width: none; /* Firefox */
+}
+#chatbox::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+h1 {
+  text-align: center;
+  color: #58bef1;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 24px 0 12px 0;
+  letter-spacing: -1px;
+}
+
+#eco-tip {
+  background: #e8f5e9;
+  font-style: italic;
+  align-self: center;
+  font-size: 0.9rem;
+    padding-bottom: 4px;
+}
+
+.chat-bubble {
+  display: flex;
+  align-items: flex-end;
+  max-width: 90%;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.chat-bubble.user {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+.chat-bubble.bot {
+  align-self: flex-start;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin: 0 8px;
+  background: #e0e0e0;
+  object-fit: cover;
+}
+
+.bubble-content {
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 100%;
+  word-break: break-word;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+}
+
+.chat-bubble.user .bubble-content {
+  background: #d1fae5;
+  color: #065f46;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 18px;
+}
+
+.chat-bubble.bot .bubble-content {
+  background: #fff;
+  color: #2e7d32;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 18px;
+}
+
+/* Suggested: fixed height, horizontal scroll if needed */
+.suggested {
+  margin: 0 auto 8px auto;
+  max-width: 100vw;
+  min-height: 48px;
+  height: 48px;
+  text-align: left;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-size: 0.95rem;
+  background: transparent;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+}
+.suggested::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Make suggestion buttons not wrap */
+.suggested button {
+    font-family: "Inter", sans-serif;
+  white-space: nowrap;
+  margin: 2px 3px;
+    padding: 5px 10px;
+    background-color: #e3fcec;
+    color: #1b7f5c;
+    border: 1px solid #b2dfdb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.92rem;
+    transition: background 0.18s, color 0.18s;
+    box-shadow: 0 1px 2px rgba(44, 62, 80, 0.04);
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 750px;
+  margin: 0 auto 8px auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+  position: relative;
+  border: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+/* Responsive: allow chatbox to scroll, keep input and suggested visible */
+@media (max-width: 700px) {
+  .container, #chatbox, .suggested, .input-area {
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #chatbox {
+    padding: 10px 0;
+    min-height: 0;
+  }
+  .suggested {
+    min-height: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 16px 18px;
+  border: none;
+  border-radius: 14px 0 0 14px;
+  font-size: 1.08rem;
+  font-family: "Inter", "Quicksand", sans-serif;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  color: #222;
+  transition: background 0.2s;
+}
+
+
+.input-area button[type="submit"], 
+.input-area button {
+  background: none;
+  color: #2196f3;
+  border: none;
+  padding: 0 22px;
+  font-size: 1.7rem;
+  border-radius: 0 14px 14px 0;
+  cursor: pointer;
+  font-family: "Inter", "Quicksand", sans-serif;
+  font-weight: 600;
+  height: 48px;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.input-area .ri-send-plane-line {
+  font-size: 1.3rem;
+  margin-left: 2px;
+  margin-top: 1px;
+  display: inline-block;
+  vertical-align: middle;
+}

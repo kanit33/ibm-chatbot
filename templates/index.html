@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EcoBot – IBM Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <div class="container">
+        <h1>EcoBot 🌱</h1>
+
+        
+        <div id="chatbox"></div>
+        
+        <div class="suggested">
+            <button onclick="quickAsk('How can I reduce plastic waste at home?')">♻️ Reduce Plastic</button>
+            <button onclick="quickAsk('What is sustainable consumption?')">🌿 Sustainable Tips</button>
+            <button onclick="quickAsk('How to recycle e-waste?')">📱 E-waste Tips</button>
+            <button onclick="quickAsk('What are the benefits of renewable energy?')">☀️ Renewable Energy</button>
+            <button onclick="quickAsk('How can I save water at home?')">🚰 Save Water</button>
+            <button onclick="quickAsk('What are the best eco-friendly products?')">🛒 Eco Products</button>
+            <button onclick="quickAsk('What is carbon footprint?')">🌍 Carbon Footprint</button>
+            <button onclick="quickAsk('What are the benefits of plant-based diets?')">🥗 Plant-Based Diets</button>
+            <button onclick="quickAsk('How can I support local farmers?')">🚜 Support Local</button>
+            <button onclick="quickAsk('What are the best practices for composting?')">🍂 Composting</button>
+            <button onclick="quickAsk('How can I reduce energy consumption at home?')">💡 Energy Saving</button>
+            <button onclick="quickAsk('What are the best ways to conserve biodiversity?')">🌳 Biodiversity</button>
+            <button onclick="quickAsk('What are the benefits of urban gardening?')">🌱 Urban Gardening</button>
+            <button onclick="quickAsk('What are the best ways to reduce food waste?')">🍽️ Food Waste</button>
+            <button onclick="quickAsk('What are the benefits of using public transport?')">🚍 Public Transport</button>
+            <button onclick="quickAsk('What are the best ways to reduce air pollution?')">🌫️ Air Pollution</button>
+            <button onclick="quickAsk('What are the benefits of green buildings?')">🏢 Green Buildings</button>
+            <button onclick="quickAsk('What are the best ways to reduce noise pollution?')">🔇 Noise Pollution</button>
+            <button onclick="startQuiz()">🧪 Eco Quiz</button>
+        </div>
+
+        <form class="input-area" onsubmit="sendMessage(); return false;">
+            <input type="text" id="user-input" placeholder="Ask your question..." autocomplete="off" />
+            <button type="submit" aria-label="Send">
+                <i class="ri-send-plane-line"></i>
+            </button>
+        </form>
+        <div id="eco-tip"></div>
+    </div>
+</form>
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
